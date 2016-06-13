@@ -4,7 +4,10 @@ import com.stratpoint.guavasample.basic.BasicNullUsage;
 
 import org.junit.Test;
 import org.junit.Before;
-import org.junit.After;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.Spy;
+import org.mockito.runners.MockitoJUnitRunner;
 
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -12,21 +15,13 @@ import static org.mockito.Mockito.*;
 /**
  * Created by raymondsarmiento on 6/13/16.
  */
+@RunWith(MockitoJUnitRunner.class)
 public class BasicNullUsageTest {
-    private BasicNullUsage basicNullUsage;
-
-    @Before
-    public void before() {
-        basicNullUsage = mock(BasicNullUsage.class);
-    }
+    @Spy private BasicNullUsage basicNullUsage;
 
     @Test
-    public void checkNullValue() throws Exception {
-
-    }
-
-    @After
-    public void after() {
-        basicNullUsage = null;
+    public void check_optional_isNotNull() throws Exception {
+        basicNullUsage.addValue(5);
+        assertTrue(basicNullUsage.allValueAreNotNull());
     }
 }
