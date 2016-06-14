@@ -1,4 +1,4 @@
-package com.stratpoint.guavasample;
+package com.stratpoint.guavasample.basic;
 
 import com.stratpoint.guavasample.basic.BasicNullUsage;
 
